@@ -6,3 +6,10 @@ Design for a single cycle processor with the following:
 - 16 bit pc, initialized to 0 - only lower 10 bits used due to memory constraints
 - 1 instruction ADD - 0001AAAABBBBTTTT 
     adds values in registers a and b and places in register t
+
+Compile:
+iverilog -o cpu cpu.v
+Run:
+./cpu
+Debug in GTKWave:
+gtkwave cpu.vcd
