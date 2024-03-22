@@ -1,6 +1,6 @@
 Design for a single cycle processor with the following:
 
-- 16 registers with width of 16 bits each, initialized to 0
+- 16 registers with width of 16 bits each, initialized to their number (e.g. r0 = 0, r1 = 1, ...)
 - memory size of 1024 * 16 bits, intialized according to mem.hex
 - memory is word addressable (16 bits/2 bytes)
 - 16 bit pc, initialized to 0 - only lower 10 bits used due to memory constraints
