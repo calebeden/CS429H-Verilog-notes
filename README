@@ -1,0 +1,8 @@
+Design for a single cycle processor with the following:
+
+- 16 registers with width of 16 bits each, initialized to 0
+- memory size of 1024 * 16 bits, intialized according to mem.hex
+- memory is word addressable (16 bits/2 bytes)
+- 16 bit pc, initialized to 0 - only lower 10 bits used due to memory constraints
+- 1 instruction ADD - 0001AAAABBBBTTTT 
+    adds values in registers a and b and places in register t
