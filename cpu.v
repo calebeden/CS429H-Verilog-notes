@@ -25,7 +25,7 @@ module main;
     initial begin
         // Ask simulator to pre-populate mem from the given file
         // mem.hex starts initializing at bit 0 [from @0]
-        // initializes the first 3 words then leaves the rest undefined
+        // Initializes the first 3 words then leaves the rest undefined
         // Undefined values will be tracked through the simulation
         $readmemh("mem.hex", mem);
     end
@@ -36,8 +36,9 @@ module main;
     reg [15:0] regs [0:15];
     integer i;
     initial begin
-        // for (i = 0; i < 16; i++) regs[i] = 0;
-        for (i = 0; i < 16; i++) regs[i] = i+100;
+        // Intialize registers to 0
+        for (i = 0; i < 16; i++) regs[i] = 0;
+        // for (i = 0; i < 16; i++) regs[i] = i+100;
     end
     // Hack for debugging in GTKWave - not good to actually include in synthesized design
     wire [15:0] r0 = regs[0];
@@ -66,6 +67,7 @@ module main;
      * Fetch *
      *********/
     wire [15:0] ins = mem[pc[9:0]]; // Read port
+    // Bits 0 through 9 because memory size is only 1024x16 (2^10 x instruction_size)
 
     /**********
      * Decode *
@@ -76,7 +78,7 @@ module main;
     wire [3:0] rt = ins[3:0];
 
     wire is_add = opcode == 1;
-    wire is_unknown = ~is_add;
+    wire is_unknown = ~is_add; // & ~is_sub & ...
 
     /************
      * Operands *
