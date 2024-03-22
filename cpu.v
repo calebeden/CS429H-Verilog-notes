@@ -37,8 +37,8 @@ module main;
     integer i;
     initial begin
         // Intialize registers to 0
-        for (i = 0; i < 16; i++) regs[i] = 0;
-        // for (i = 0; i < 16; i++) regs[i] = i+100;
+        // for (i = 0; i < 16; i++) regs[i] = 0;
+        for (i = 0; i < 16; i++) regs[i] = i;
     end
     // Hack for debugging in GTKWave - not good to actually include in synthesized design
     wire [15:0] r0 = regs[0];
